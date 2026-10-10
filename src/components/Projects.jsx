@@ -60,15 +60,14 @@ let projectss = [
     ),
 
     new project(
-        "Portfolio",
-        "completed",
-        "Personal portfolio",
-        ["HTML", "CSS", "JS", "React"],
-        "https://github.com/waseem-marabi1/portfolio1",
-        "/image/pro.png",
-        "https://waseem-marabi1.github.io/portfolio1/"
-    )
-
+    "Portfolio",
+    "completed",
+    "Personal portfolio",
+    ["HTML", "CSS", "JS", "React"],
+    "https://github.com/waseem-marabi1/waseem-marabi1.github.io",
+    "/image/pro.png",
+    "https://waseem-marabi1.github.io/"
+)
 ];
 
 

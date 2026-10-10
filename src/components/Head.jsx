@@ -3,7 +3,7 @@ import "../App.css";
 import "./Head.css";
 
 const Head = () => {
-
+const [showImage, setShowImage] = useState(false);
   const [open, setopen] = useState(false)
 
   return (
@@ -13,7 +13,12 @@ const Head = () => {
 
         <div className="flex items-center gap-2">
 
-          <div className="size-3 rounded-full bg-[var(--primary)]"></div>
+         <img
+  src="/image/me.jpg"
+  alt="Waseem Marabi"
+  onClick={() => setShowImage(true)}
+  className="w-12 h-12 rounded-full object-cover cursor-pointer hover:scale-110 transition-transform"
+/>
 
           <h3 className="text-xl text-[var(--text)] font-semibold">
             waseem marabi
@@ -156,8 +161,22 @@ const Head = () => {
               Download CV
             </a>
       </div>
-
+{showImage && (
+  <div
+    className="fixed inset-0 bg-black/80 z-[9999] flex items-center justify-center"
+    onClick={() => setShowImage(false)}
+  >
+    <img
+      src="/image/me.jpg"
+      alt="Waseem Marabi"
+      className="w-72 h-72 sm:w-96 sm:h-96 rounded-full object-cover shadow-2xl"
+      onClick={(e) => e.stopPropagation()}
+    />
+  </div>
+)}
     </div>
+    
+  
   );
 };
 
