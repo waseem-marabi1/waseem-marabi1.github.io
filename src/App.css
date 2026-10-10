@@ -1,0 +1,103 @@
+:root {
+  /* Main backgrounds */
+  --background: #0b0b18;
+  --background2: #111122;
+  --surface: #151529;
+  --surface2: #1a1a30;
+
+  /* Main purple theme */
+  --primary: #8b5cf6;
+  --primary-hover: #7c3aed;
+  --secondary: #a855f7;
+  --accent: #c084fc;
+
+  /* Text */
+  --text: #ffffff;
+  --text-secondary1: #e4e4e7;
+  --text-muted: #9ca3af;
+
+  /* Borders */
+  --borderr: #27273d;
+  --border-light: #3f3f5a;
+
+  /* Status */
+  --success: #22c55e;
+  --danger: #ef4444;
+
+  --white: #ffffff;
+  --text1: #111111;
+
+  /* Transparent theme colors */
+  --primary-soft: rgba(139, 92, 246, 0.10);
+  --primary-border: rgba(139, 92, 246, 0.30);
+  --surface-transparent: rgba(255, 255, 255, 0.05);
+
+  /* Gradients */
+  --td: linear-gradient(
+   to right,
+    #c084fc,
+    #8b5cf6,
+    #6366f1,
+    #22d3ee
+  );
+
+  --reword: linear-gradient(
+      to right,
+    #c084fc,
+    #a855f7,
+    #6366f1,
+    #22d3ee
+  );
+
+  --reword2: linear-gradient(
+    to right,
+    #a855f7,
+    #7c3aed
+  );
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.motion {
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradientMove 4s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes homemot {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(7px);
+  }
+}
+
+.homemotion {
+  animation: homemot infinite 3.5s ease-in-out;
+}
