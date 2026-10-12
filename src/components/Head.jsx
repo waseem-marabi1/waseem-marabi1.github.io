@@ -20,7 +20,7 @@ const [showImage, setShowImage] = useState(false);
   className="w-12 h-12 rounded-full object-cover cursor-pointer hover:scale-110 transition-transform"
 />
 
-          <h3 className="text-sm text-[var(--text)]  lg:text-xl font-bold">
+          <h3 className="text-md text-[var(--text)]  lg:text-xl font-bold">
             waseem
           </h3>
 
@@ -74,17 +74,17 @@ const [showImage, setShowImage] = useState(false);
               duration-300
               cursor-pointer
                  flex
-              
-
+              shadow-purple-100/50
+              shadow-sm
+              md:shadow-none
               gap-2
-              ml-32 md:ml-0 
             "
           >
             <a
               href="/CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[var(--primary)]    text-white px-2 py-1 lg:px-4 lg:py-2 rounded-xl hover:opacity-80 transition-all"
+              className="bg-[var(--primary)]    text-white px-4 py-1.5  lg:px-4 lg:py-2 rounded-xl hover:opacity-80 transition-all"
             >
               View CV
             </a>
