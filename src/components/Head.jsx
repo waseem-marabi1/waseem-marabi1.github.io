@@ -1,188 +1,137 @@
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import "../App.css";
 import "./Head.css";
 
 const Head = () => {
-const [showImage, setShowImage] = useState(false);
+  const [showImage, setShowImage] = useState(false);
   const [open, setopen] = useState(false)
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   return (
     <div className="flex fixed top-0 left-0 w-full z-50 items-center justify-center">
 
-      <nav className="w-full border-b border-[var(--borderr)] lg:w-[70%] lg:mt-6 m-auto h-[65px] lg:rounded-4xl bg-[var(--background2)] flex px-10 justify-between items-center">
+      <nav className="w-full border-b border-[var(--borderr)] lg:w-[70%] lg:mt-6 m-auto h-[65px] lg:rounded-4xl bg-[var(--background2)] flex px-10 justify-between items-center relative z-50">
 
         <div className="flex items-center gap-2">
 
-         <img
-  src="/image/me.jpg"
-  alt="Waseem Marabi"
-  onClick={() => setShowImage(true)}
-  className="w-12 h-12 rounded-full object-cover cursor-pointer hover:scale-110 transition-transform"
-/>
+          <img
+            src="/image/me.jpg"
+            alt="Waseem Marabi"
+            onClick={() => setShowImage(true)}
+            className="w-12 h-12 rounded-full object-cover cursor-pointer hover:scale-110 transition-transform"
+          />
 
-          <h3 className="text-md text-[var(--text)]  lg:text-xl font-bold">
+          <h3 className="text-md text-[var(--text)] lg:text-xl font-bold">
             waseem
           </h3>
 
         </div>
 
-
         <div className="hidden lg:flex sec p-2 rounded-4xl gap-6">
 
-          <a
-            href="#home"
-            className="p-1 rounded-4xl text-[var(--text-muted)] hover:text-[var(--text)]"
-          >
+          <a href="#home" className="p-1 rounded-4xl text-[var(--text-muted)] hover:text-[var(--text)]">
             Home
           </a>
 
-          <a
-            href="#skills"
-            className="p-1 rounded-4xl text-[var(--text-muted)] hover:text-[var(--text)]"
-          >
+          <a href="#skills" className="p-1 rounded-4xl text-[var(--text-muted)] hover:text-[var(--text)]">
             Skills
           </a>
 
-          <a
-            href="#projects"
-            className="p-1 rounded-4xl text-[var(--text-muted)] hover:text-[var(--text)]"
-          >
+          <a href="#projects" className="p-1 rounded-4xl text-[var(--text-muted)] hover:text-[var(--text)]">
             Projects
           </a>
 
-          <a
-            href="#contact"
-            className="p-1 rounded-4xl text-[var(--text-muted)] hover:text-[var(--text)]"
-          >
+          <a href="#contact" className="p-1 rounded-4xl text-[var(--text-muted)] hover:text-[var(--text)]">
             Contact
           </a>
 
         </div>
 
-          <div
-            className="
-         
-              border
-              border-[var(--borderr)]
-              px-2
-              py-1
-              lg:px-4
-              lg:py-2
-              rounded-3xl
-              hover:border-[var(--primary)]
-              transition-all
-              duration-300
-              cursor-pointer
-                 flex
-              shadow-purple-100/50
-              shadow-sm
-              md:shadow-none
-              gap-2
-            "
+        <div className="border border-[var(--borderr)] px-2 py-1 lg:px-4 lg:py-2 rounded-3xl hover:border-[var(--primary)] transition-all duration-300 cursor-pointer flex shadow-purple-100/50 shadow-sm md:shadow-none gap-2">
+          <a
+            href="/CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[var(--primary)] text-white px-4 py-1.5 lg:px-4 lg:py-2 rounded-xl hover:opacity-80 transition-all"
           >
-            <a
-              href="/CV.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[var(--primary)]    text-white px-4 py-1.5  lg:px-4 lg:py-2 rounded-xl hover:opacity-80 transition-all"
-            >
-              View CV
-            </a>
+            View CV
+          </a>
 
-            <a
-              href="/CV.pdf"
-              download="Waseem_Marabi_CV.pdf"
-              className="border hidden lg:inline-flex border-[var(--primary)] text-white px-3 py-2 rounded-xl hover:bg-[var(--primary)] transition-all"
-            >
-              Download CV
-            </a>
-          </div>
-
-
-          <div
-            className="lg:hidden text-[var(--text)] text-2xl p-2 cursor-pointer"
-            onClick={() => setopen(!open)}
+          <a
+            href="/CV.pdf"
+            download="Waseem_Marabi_CV.pdf"
+            className="border hidden lg:inline-flex border-[var(--primary)] text-white px-3 py-2 rounded-xl hover:bg-[var(--primary)] transition-all"
           >
-            <i className="fa-solid fa-bars"></i>
-          </div>
+            Download CV
+          </a>
+        </div>
 
+        <div
+          className="lg:hidden text-[var(--text)] text-2xl p-2 cursor-pointer"
+          onClick={() => setopen(!open)}
+        >
+          <i className="fa-solid fa-bars"></i>
+        </div>
 
       </nav>
 
+      {open && (
+        <div
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          onClick={() => setopen(false)}
+        />
+      )}
 
       <div
         style={{ display: open ? "flex" : "none" }}
-        className="
-          absolute
-          w-[70%]
-          top-24
-          border
-          border-[var(--borderr)]
-          rounded-4xl
-          flex
-          flex-col
-          m-auto
-          px-10
-          py-4
-          bg-[var(--background2)]
-        "
+        className="absolute w-[70%] top-24 border border-[var(--borderr)] rounded-4xl flex flex-col m-auto px-10 py-4 bg-[var(--background2)] z-50"
       >
 
-        <a
-          onClick={() => setopen(false)}
-          href="#home"
-          className="p-2 rounded-4xl text-[var(--text-muted)] hover:text-[var(--text)]"
-        >
+        <a onClick={() => setopen(false)} href="#home" className="p-2 rounded-4xl text-[var(--text-muted)] hover:text-[var(--text)]">
           Home
         </a>
 
-        <a
-          onClick={() => setopen(false)}
-          href="#skills"
-          className="p-2 rounded-4xl text-[var(--text-muted)] hover:text-[var(--text)]"
-        >
+        <a onClick={() => setopen(false)} href="#skills" className="p-2 rounded-4xl text-[var(--text-muted)] hover:text-[var(--text)]">
           Skills
         </a>
 
-        <a
-          onClick={() => setopen(false)}
-          href="#projects"
-          className="p-2 rounded-4xl text-[var(--text-muted)] hover:text-[var(--text)]"
-        >
+        <a onClick={() => setopen(false)} href="#projects" className="p-2 rounded-4xl text-[var(--text-muted)] hover:text-[var(--text)]">
           Projects
         </a>
 
-        <a
-          onClick={() => setopen(false)}
-          href="#contact"
-          className="p-2 rounded-4xl text-[var(--text-muted)] hover:text-[var(--text)]"
-        >
+        <a onClick={() => setopen(false)} href="#contact" className="p-2 rounded-4xl text-[var(--text-muted)] hover:text-[var(--text)]">
           Contact
         </a>
-         <a
-              href="/CV.pdf"
-              download="Waseem_Marabi_CV.pdf"
-              className="border  border-[var(--primary)] text-white px-3 py-2 rounded-xl hover:bg-[var(--primary)] transition-all"
-            >
-              Download CV
-            </a>
+
+        <a href="/CV.pdf" download="Waseem_Marabi_CV.pdf" className="border border-[var(--primary)] text-white px-3 py-2 rounded-xl hover:bg-[var(--primary)] transition-all">
+          Download CV
+        </a>
+
       </div>
-{showImage && (
-  <div
-    className="fixed inset-0 bg-black/80 z-[9999] flex items-center justify-center"
-    onClick={() => setShowImage(false)}
-  >
-    <img
-      src="/image/me.jpg"
-      alt="Waseem Marabi"
-      className="w-72 h-72 sm:w-96 sm:h-96 rounded-full object-cover shadow-2xl"
-      onClick={(e) => e.stopPropagation()}
-    />
-  </div>
-)}
+
+      {showImage && (
+        <div
+          className="fixed inset-0 bg-black/80 z-[9999] flex items-center justify-center"
+          onClick={() => setShowImage(false)}
+        >
+          <img
+            src="/image/me.jpg"
+            alt="Waseem Marabi"
+            className="w-72 h-72 sm:w-96 sm:h-96 rounded-full object-cover shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
+
     </div>
-    
-  
   );
 };
 
