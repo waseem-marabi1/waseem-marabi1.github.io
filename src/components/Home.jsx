@@ -57,8 +57,7 @@ const Home = () => {
 
         <div
             id="home"
-            className="grid gap-20 lg:gap-0 lg:grid-cols-2 px-8 pt-32"
-        >
+className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-0 px-4 lg:px-8 pt-32 w-full max-w-7xl mx-auto"        >
 
             <section className="flex flex-col gap-6 w-[100%] text-center items-center justify-center lg:justify-start lg:items-start">
 
